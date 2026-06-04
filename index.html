@@ -398,6 +398,11 @@
             // Success Color Shift (Google Green)
             btn.classList.remove('bg-google-blue', 'hover:bg-[#2b6ada]', 'dark:bg-[#8AB4F8]', 'dark:hover:bg-[#93bcf9]', 'text-white', 'dark:text-[#174EA6]');
             btn.classList.add('bg-google-green', 'text-white');
+            // Open Google Form in a new tab after 1.2 seconds 
+            // (Allows enough time to see the sarcastic confetti state change!)
+            setTimeout(() => {
+                window.open('https://forms.gle/cCnZcMJueU4WSbGP8', '_blank');
+            }, 1200);
             
             // Cleanup ripple element after animation finishes
             setTimeout(() => {
