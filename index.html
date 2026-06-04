@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Khai is TWO Much Fun!</title>
     
+    <!-- Fonts: Fredoka for playful headers, Outfit for clean Material UI text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,6 +66,7 @@
         }
     </script>
     
+    <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
@@ -149,7 +153,9 @@
 </head>
 <body class="font-modern min-h-screen relative flex items-center justify-center p-4 sm:p-6 lg:p-8 text-slate-800 dark:text-slate-100">
 
+    <!-- Background Elements -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Floating Balloons -->
         <svg class="absolute top-[8%] left-[10%] w-24 h-32 text-google-red animate-float-slow opacity-90" viewBox="0 0 100 140" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M50 0C25 0 10 20 10 45C10 75 40 95 50 100C60 95 90 75 90 45C90 20 75 0 50 0Z"/>
             <path d="M50 100L45 110H55L50 100Z" fill="currentColor"/>
@@ -171,11 +177,15 @@
             <path d="M 25 35 Q 35 20 45 25" stroke="rgba(255,255,255,0.4)" stroke-width="6" stroke-linecap="round" fill="none"/>
         </svg>
 
+        <!-- Red Wagon Driving -->
         <div class="absolute bottom-6 left-0 w-32 h-32 animate-wagon-drive">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Handle -->
                 <path d="M 85 45 L 95 15" stroke="#444" stroke-width="5" stroke-linecap="round" class="dark:stroke-gray-300"/>
                 <circle cx="95" cy="15" r="5" fill="#EA4335"/>
+                <!-- Body -->
                 <path d="M 10 45 L 85 45 C 90 45 92 48 90 55 L 80 75 L 15 75 L 5 55 C 3 48 5 45 10 45 Z" fill="#EA4335"/>
+                <!-- Wheels -->
                 <circle cx="25" cy="80" r="12" fill="#202124" class="dark:fill-gray-100"/>
                 <circle cx="25" cy="80" r="4" fill="#F8F9FA" class="dark:fill-gray-900"/>
                 <circle cx="70" cy="80" r="12" fill="#202124" class="dark:fill-gray-100"/>
@@ -184,8 +194,10 @@
         </div>
     </div>
 
+    <!-- Bento Grid Container -->
     <main class="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(130px,auto)] gap-4 sm:gap-5">
         
+        <!-- 1. Hero Block (Tonal Yellow Surface) -->
         <div class="material-card p-8 md:col-span-12 lg:col-span-8 flex flex-col justify-center items-center text-center bg-[#FFF8E1] dark:bg-[#3E2723] shadow-sm">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-google-yellow/20 dark:bg-google-yellow/10 text-google-yellow dark:text-[#FFE082] text-sm font-semibold tracking-wide uppercase mb-4">
                 <i data-lucide="alert-triangle" class="w-4 h-4 fill-current"></i>
@@ -195,6 +207,7 @@
             <div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 mb-6">
                 <span class="text-4xl sm:text-5xl md:text-6xl font-playful font-bold text-[#3E2723] dark:text-[#FFE082]">Khai is</span>
                 
+                <!-- Interactive Toy Blocks -->
                 <div class="flex gap-2 mx-1">
                     <div class="toy-block w-14 h-14 sm:w-16 sm:h-16 rounded-[1rem] bg-google-red flex items-center justify-center text-white text-3xl sm:text-4xl font-playful font-bold" onclick="playJiggle(this)">T</div>
                     <div class="toy-block w-14 h-14 sm:w-16 sm:h-16 rounded-[1rem] bg-google-blue flex items-center justify-center text-white text-3xl sm:text-4xl font-playful font-bold" onclick="playJiggle(this)">W</div>
@@ -207,20 +220,23 @@
             <p class="text-lg md:text-xl font-medium text-[#5D4037] dark:text-[#D7CCC8]">An intimate park day with the people who have to be around one another 'cause we're family. We’re keeping it small and family-only for a sweet, simple celebration.</p>
         </div>
 
+        <!-- 2. Date & Time Block (Tonal Blue Surface) -->
         <div class="material-card p-6 md:col-span-6 lg:col-span-4 flex flex-col justify-between bg-[#E3F2FD] dark:bg-[#0D47A1] shadow-sm">
             <div class="flex items-start justify-between mb-4">
                 <div class="w-12 h-12 rounded-full bg-white dark:bg-[#1565C0] flex items-center justify-center text-google-blue dark:text-[#90CAF9] shadow-sm">
                     <i data-lucide="calendar" class="w-6 h-6"></i>
                 </div>
-                <button class="text-xs font-semibold bg-white dark:bg-[#1976D2] text-[#0D47A1] dark:text-[#E3F2FD] px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow flex items-center gap-2">
+                <!-- Google Style Chip -->
+                <button id="save-cal-btn" class="text-xs font-semibold bg-white dark:bg-[#1976D2] text-[#0D47A1] dark:text-[#E3F2FD] px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow flex items-center gap-2">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i> Sigh & Save
                 </button>
             </div>
             
             <div>
-                <h3 class="text-2xl font-playful font-semibold text-[#0D47A1] dark:text-[#BBDEFB] mb-1">Sun, June 7</h3>
-                <p class="text-[17px] font-medium text-[#1565C0] dark:text-[#90CAF9] mb-4">2:00 PM - 5:00 PM</p>
+                <h3 class="text-2xl font-playful font-semibold text-[#0D47A1] dark:text-[#BBDEFB] mb-1">Sun, June 15</h3>
+                <p class="text-[17px] font-medium text-[#1565C0] dark:text-[#90CAF9] mb-4">1:00 PM - 4:00 PM</p>
                 
+                <!-- Live Countdown -->
                 <div class="bg-[#BBDEFB] dark:bg-[#1565C0] rounded-2xl p-3 flex justify-around text-center">
                     <div>
                         <span id="days" class="block text-2xl font-bold font-playful text-[#0D47A1] dark:text-white">00</span>
@@ -238,16 +254,19 @@
             </div>
         </div>
 
-        <a href="https://maps.google.com/?q=Crystal+Springs+Picnic+Area,+Griffith+Park,+Los+Angeles" target="_blank" class="material-card md:col-span-6 lg:col-span-5 relative overflow-hidden group min-h-[200px] block no-underline focus:outline-none focus:ring-4 focus:ring-google-green/50 shadow-sm">
+        <!-- 3. Location Block (Interactive Map, Tonal Green) -->
+        <a href="https://maps.google.com/?q=Kenneth+Hahn+Upper+Park,+4100+S+La+Cienega+Blvd,+Los+Angeles,+CA+90056" target="_blank" class="material-card md:col-span-6 lg:col-span-5 relative overflow-hidden group min-h-[200px] block no-underline focus:outline-none focus:ring-4 focus:ring-google-green/50 shadow-sm">
+            <!-- Map Background -->
             <div class="absolute inset-0 map-bg transition-transform duration-700 group-hover:scale-105"></div>
             
+            <!-- Solid bottom sheet overlay -->
             <div class="absolute inset-x-0 bottom-0 p-5 bg-white dark:bg-[#1B5E20] border-t border-gray-100 dark:border-green-900 transition-colors">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 rounded-full bg-google-red flex items-center justify-center text-white flex-shrink-0">
                         <i data-lucide="map-pin" class="w-6 h-6 fill-current"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-playful font-semibold text-[#1B5E20] dark:text-[#C8E6C9]">Crystal Springs (Neutral Territory)</h3>
+                        <h3 class="text-lg font-playful font-semibold text-[#1B5E20] dark:text-[#C8E6C9]">Kenneth Hahn (Neutral Territory)</h3>
                         <p class="text-sm text-[#2E7D32] dark:text-[#A5D6A7] font-medium flex items-center gap-1">
                             Open in Maps <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                         </p>
@@ -256,6 +275,7 @@
             </div>
         </a>
 
+        <!-- 4. Details Block (Tonal Red/Pink Surface) -->
         <div class="material-card p-6 md:col-span-12 lg:col-span-7 flex flex-col h-full max-h-[300px] bg-[#FFEBEE] dark:bg-[#4A148C] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
                 <div class="w-10 h-10 rounded-full bg-[#FFCDD2] dark:bg-[#6A1B9A] flex items-center justify-center text-[#B71C1C] dark:text-[#E1BEE7]">
@@ -275,15 +295,16 @@
                 </div>
                 <div class="flex gap-3">
                     <i data-lucide="pizza" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
-                    <p><strong>Provisions:</strong> Kid-friendly snacks, a smash cake for Khai, and <em>plenty</em> of strong coffee (provided to help you cope).</p>
+                    <p><strong>Provisions:</strong> Kid-friendly snacks, a smash cake for Khai, and <em>plenty</em> of adult refreshments (provided to help you cope).</p>
                 </div>
                 <div class="flex gap-3">
                     <i data-lucide="smile" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
-                    <p><strong>What to bring:</strong> A picnic blanket. There are no obligations to bring gifts, but please put on your best fake smile and conversate with your new relatives.</p>
+                    <p><strong>What to bring:</strong> A picnic blanket, comfortable clothes, and your best fake smiles.</p>
                 </div>
             </div>
         </div>
 
+        <!-- 5. Smart RSVP Button (Google FAB style) -->
         <div class="md:col-span-12 flex justify-center mt-4">
             <button id="rsvp-btn" class="ripple-btn group relative overflow-hidden rounded-full w-full max-w-[320px] h-16 bg-google-blue hover:bg-[#2b6ada] dark:bg-[#8AB4F8] dark:hover:bg-[#93bcf9] text-white dark:text-[#174EA6] shadow-lg shadow-google-blue/30 dark:shadow-[#8AB4F8]/20 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-4 focus:ring-google-blue/50 flex items-center justify-center gap-3">
                 <i data-lucide="check-circle-2" class="w-6 h-6 transition-transform group-hover:scale-110"></i>
@@ -311,7 +332,7 @@
         }
 
         // 2. Countdown Timer Logic
-        const targetDate = new Date('June 7, 2026 14:00:00').getTime();
+        const targetDate = new Date('June 15, 2026 13:00:00').getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
@@ -335,6 +356,40 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        // Add to Calendar Logic
+        document.getElementById('save-cal-btn').addEventListener('click', function(e) {
+            // Haptics
+            if (navigator.vibrate) {
+                navigator.vibrate([20, 20, 20]); 
+            }
+            
+            // Generate standard .ics file for the event
+            // Note: Times are converted to UTC (Los Angeles PDT is UTC-7 in June)
+            // 1:00 PM PDT = 20:00:00 UTC / 4:00 PM PDT = 23:00:00 UTC
+            const icsContent = [
+                "BEGIN:VCALENDAR",
+                "VERSION:2.0",
+                "BEGIN:VEVENT",
+                "DTSTART:20260615T200000Z",
+                "DTEND:20260615T230000Z",
+                "SUMMARY:Khais Birthday June 15 2026",
+                "LOCATION:Kenneth Hahn Upper Park\\, 4100 S La Cienega Blvd\\, Los Angeles\\, CA 90056",
+                "DESCRIPTION:A classic park picnic\\, cake\\, and casual uncomfortable memory-making.",
+                "END:VEVENT",
+                "END:VCALENDAR"
+            ].join("\n");
+
+            // Create a blob and trigger download
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'khais_birthday.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
 
         // 3. Material Ink Ripple & RSVP Logic
         document.getElementById('rsvp-btn').addEventListener('click', function(e) {
@@ -398,6 +453,12 @@
             // Success Color Shift (Google Green)
             btn.classList.remove('bg-google-blue', 'hover:bg-[#2b6ada]', 'dark:bg-[#8AB4F8]', 'dark:hover:bg-[#93bcf9]', 'text-white', 'dark:text-[#174EA6]');
             btn.classList.add('bg-google-green', 'text-white');
+
+            // Open Google Form in a new tab after 1.2 seconds 
+            // (Allows enough time to see the sarcastic confetti state change!)
+            setTimeout(() => {
+                window.open('https://forms.gle/cCnZcMJueU4WSbGP8', '_blank');
+            }, 1200);
             
             // Cleanup ripple element after animation finishes
             setTimeout(() => {
